@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-board-dark: #062016;
+  --color-board-light: #0f4c3a;
+  --color-accent-gold: #eab308;
+  --color-card-bg: #fdfbf7;
+  --color-card-red: #d40000;
+  --color-card-black: #1a1a1a;
+  --color-card-back-dark: #1e4a3c;
+  --color-card-back-light: #1a3d32;
+}
+
+:root {
+  background-color: var(--color-board-dark);
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.immersive-gradient {
+  background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  position: relative;
+}
+
+.immersive-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.carbon-fiber {
+  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+}
+
+.hud-transition {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+@layer utilities {
+  .origin-center { transform-origin: center; }
+}
+
+.tutorial-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.highlight-focus {
+  z-index: 60;
+  position: relative;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5), 0 0 40px rgba(234, 179, 8, 0.8);
+  pointer-events: none;
+}
+
+.card-back-pattern {
+  background: repeating-linear-gradient(45deg, var(--color-card-back-dark), var(--color-card-back-dark) 10px, var(--color-card-back-light) 10px, var(--color-card-back-light) 20px);
+}
+
+/* Custom scrollbar for log */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
